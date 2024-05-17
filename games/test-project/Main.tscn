@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://Button.gd" id="1_t3d7d"]
 
-[sub_resource type="Theme" id="Theme_w2yp0"]
+[sub_resource type="Theme" id="Theme_wsny6"]
+default_font_size = 32
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_wsny6")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
@@ -18,8 +20,7 @@ offset_left = 290.0
 offset_top = 231.0
 offset_right = 862.0
 offset_bottom = 379.0
-theme = SubResource("Theme_w2yp0")
-text = "Click Me"
+text = "Click Me!"
 script = ExtResource("1_t3d7d")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
