@@ -16,12 +16,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   export-web:
     name: Web Export
@@ -30,7 +24,7 @@ jobs:
       image: barichello/godot-ci:4.2.2
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           lfs: true
       - name: Setup
@@ -42,21 +36,33 @@ jobs:
           mkdir -v -p ${{ env.PROJECT_PATH }}/build/web
           cd ${{ env.PROJECT_PATH }}
           godot --headless --verbose --export-release "HTML5" build/web/index.html
-      - name: debug
-        run: |
-          find ./ -type f
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: web-build
           path: ${{ env.PROJECT_PATH }}/build/web
+
+  
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: netlify
+      url: ${{ steps.deployment.outputs.deploy-url }}
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: web-build
       - name: Deploy to Netlify
+        id: deployment
         uses: nwtgck/actions-netlify@v3.0
         with:
-          publish-dir: ${{ env.PROJECT_PATH }}/build/web
+          publish-dir: ./
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 1
+
+    
