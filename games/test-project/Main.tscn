@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvk5ghjg3c21y"]
+[gd_scene load_steps=4 format=3 uid="uid://cvk5ghjg3c21y"]
 
+[ext_resource type="Texture2D" uid="uid://budvvv0nv0own" path="res://icon.svg" id="1_f3wk3"]
 [ext_resource type="Script" path="res://Button.gd" id="1_t3d7d"]
 
 [sub_resource type="Theme" id="Theme_wsny6"]
@@ -10,17 +11,29 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -9.0
+offset_right = 5.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_wsny6")
 
-[node name="Button" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 290.0
-offset_top = 231.0
-offset_right = 862.0
-offset_bottom = 379.0
+offset_left = 299.0
+offset_top = 408.0
+offset_right = 444.0
+offset_bottom = 461.0
+alignment = 1
+
+[node name="Icon" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(430, -173)
+texture = ExtResource("1_f3wk3")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "Click Me!"
 script = ExtResource("1_t3d7d")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
