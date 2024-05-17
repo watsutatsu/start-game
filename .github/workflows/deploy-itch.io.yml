@@ -45,6 +45,7 @@ jobs:
 
   
   deploy:
+    needs: export-web
     runs-on: ubuntu-latest
     environment:
       name: netlify
