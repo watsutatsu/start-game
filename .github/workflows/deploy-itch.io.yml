@@ -12,27 +12,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Set up Godot
-        uses: firebelley/setup-godot@v1
+      - uses: vitorgus/setup-godot@v1
         with:
-          godot-version: '4.0.3' # Set your Godot version here
-
-      - name: Export HTML5
-        run: godot --export "HTML5" ./export/html5.zip
-
-      - name: Export Windows
-        run: godot --export "Windows" ./export/windows.zip
-
-      # Add more export steps for other platforms as needed
-
-      - name: Upload to itch.io
-        uses: FerrisChat/itch.io-action@v1
+          godot-version: 4.2.2
+      - name: Web Build
+        run: |
+          cd games/simple-ui
+          mkdir -v -p build/web
+          godot -v --export "HTML5" ./build/web/index.html
+      - uses: actions/upload-artifact@v2
         with:
-          api_key: ${{ secrets.ITCH_IO_API_KEY }}
-          game_path: ./export/html5.zip
-          game: yourusername/yourgamename
-          platform: html
-
-      # Add more upload steps for other platforms as needed
-
+          name: web
+          path: games/simple-ui/build/web
