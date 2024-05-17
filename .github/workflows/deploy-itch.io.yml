@@ -63,6 +63,7 @@ jobs:
         uses: nwtgck/actions-netlify@v3.0
         with:
           publish-dir: ./web-build
+          production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
         env:
