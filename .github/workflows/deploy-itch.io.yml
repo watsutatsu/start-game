@@ -37,13 +37,13 @@ jobs:
           mkdir -v -p ${{ env.PROJECT_PATH }}/build/web
           cd ${{ env.PROJECT_PATH }}
           godot --headless --verbose --export-release "HTML5" build/web/index.html
+      - name: Copy netlify.toml
+        run: cp netlify.toml ${{ env.PROJECT_PATH }}/build/web
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: web-build
-          path: |
-            ${{ env.PROJECT_PATH }}/build/web
-            netlify.toml
+          path: ${{ env.PROJECT_PATH }}/build/web
 
   
   deploy:
