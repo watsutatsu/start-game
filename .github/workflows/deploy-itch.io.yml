@@ -1,27 +1,43 @@
 name: Build and Deploy to itch.io
 
+env:
+  GODOT_VERSION: 4.2.2
+  EXPORT_NAME: test-project
+  PROJECT_PATH: games/test-project
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  build:
+  export-web:
+    name: Web Export
     runs-on: ubuntu-latest
-
+    container:
+      image: barichello/godot-ci:${GODOT_VERSION}
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v2
-      - uses: manleydev/build-godot-action@4.2.2
         with:
-          name: godot-project
-          preset: HTML5
+          lfs: true
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
       - name: Web Build
         run: |
-          cd games/simple-ui
           mkdir -v -p build/web
-          godot -v --export "HTML5" ./build/web/index.html
-      - uses: actions/upload-artifact@v2
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "HTML5" ../build/web/index.html
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
         with:
           name: web
-          path: games/simple-ui/build/web
+          path: build/web
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build/web # The folder the action should deploy.
+  
