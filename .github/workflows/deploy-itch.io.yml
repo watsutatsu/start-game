@@ -1,0 +1,38 @@
+name: Build and Deploy to itch.io
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Godot
+        uses: firebelley/setup-godot@v1
+        with:
+          godot-version: '4.0.3' # Set your Godot version here
+
+      - name: Export HTML5
+        run: godot --export "HTML5" ./export/html5.zip
+
+      - name: Export Windows
+        run: godot --export "Windows" ./export/windows.zip
+
+      # Add more export steps for other platforms as needed
+
+      - name: Upload to itch.io
+        uses: FerrisChat/itch.io-action@v1
+        with:
+          api_key: ${{ secrets.ITCH_IO_API_KEY }}
+          game_path: ./export/html5.zip
+          game: yourusername/yourgamename
+          platform: html
+
+      # Add more upload steps for other platforms as needed
+
