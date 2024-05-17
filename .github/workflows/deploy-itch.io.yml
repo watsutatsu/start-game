@@ -49,8 +49,10 @@ jobs:
       name: netlify
       url: ${{ steps.deployment.outputs.deploy-url }}
     steps:
+      - run: find ./ -type f
       - name: Download Artifact
         uses: actions/download-artifact@v4
+      - run: find ./ -type f
       - name: Deploy to Netlify
         id: deployment
         uses: nwtgck/actions-netlify@v3.0
