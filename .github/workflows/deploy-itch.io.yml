@@ -6,6 +6,7 @@ env:
   PROJECT_PATH: games/test-project
 
 on:
+  pull_request:
   push:
     branches:
       - main
