@@ -12,9 +12,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - uses: vitorgus/setup-godot@v1
+      - uses: manleydev/build-godot-action@4.2.2
         with:
-          godot-version: 4.2.2
+          name: godot-project
+          preset: HTML5
       - name: Web Build
         run: |
           cd games/simple-ui
