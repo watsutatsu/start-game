@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvk5ghjg3c21y"]
+[gd_scene load_steps=5 format=3 uid="uid://cvk5ghjg3c21y"]
 
 [ext_resource type="Texture2D" uid="uid://budvvv0nv0own" path="res://icon.svg" id="1_f3wk3"]
 [ext_resource type="Script" path="res://Button.gd" id="1_t3d7d"]
+[ext_resource type="Script" path="res://Label.gd" id="3_jq0fx"]
 
 [sub_resource type="Theme" id="Theme_wsny6"]
 default_font_size = 32
@@ -19,21 +20,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_wsny6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 299.0
-offset_top = 408.0
-offset_right = 444.0
-offset_bottom = 461.0
-alignment = 1
-
-[node name="Icon" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(430, -173)
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(80, 93)
 texture = ExtResource("1_f3wk3")
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Button" type="Button" parent="."]
 layout_mode = 2
+offset_left = 338.0
+offset_top = 77.0
+offset_right = 483.0
+offset_bottom = 130.0
 text = "Click Me!"
 script = ExtResource("1_t3d7d")
 
-[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 309.0
+offset_right = 401.0
+offset_bottom = 354.0
+script = ExtResource("3_jq0fx")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

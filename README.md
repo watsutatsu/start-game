@@ -1,3 +1,11 @@
-## test-godot
+## godot-base
+> base repository for godot games in this organization
 
-Just a test repository to see the capabilities of building and deploying Godot 4.x games to a Web target
+This repository acts as a base repository for building Godot 4.x projects and deploying them. Currently the only deployment target is `HTML5`.
+
+## Supported Godot Versions
+
+* `4.2.2`
+
+## References
+- https://github.com/watsutatsu/actions
