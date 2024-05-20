@@ -1,0 +1,16 @@
+name: godot-tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  godot-ci:
+    uses: watsutatsu/actions/.github/workflows/godot-tests.yml@main
+    with:
+      gut_version: 9.2.1
+      godot_version: 4.2.2
+      project_path: games/main
+      
