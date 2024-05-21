@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8i48t66kxi1x"]
+
+[ext_resource type="Script" path="res://levels/00/background.gd" id="1_gh65k"]
+
+[node name="Background" type="ColorRect"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_gh65k")
+metadata/_edit_lock_ = true

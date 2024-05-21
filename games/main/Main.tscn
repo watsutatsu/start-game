@@ -1,44 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvk5ghjg3c21y"]
+[gd_scene load_steps=3 format=3 uid="uid://cvk5ghjg3c21y"]
 
-[ext_resource type="Texture2D" uid="uid://budvvv0nv0own" path="res://icon.svg" id="1_f3wk3"]
-[ext_resource type="Script" path="res://Button.gd" id="1_t3d7d"]
-[ext_resource type="Script" path="res://Label.gd" id="3_jq0fx"]
+[ext_resource type="Script" path="res://Main.gd" id="1_8njoe"]
+[ext_resource type="PackedScene" uid="uid://b8i48t66kxi1x" path="res://scenes/common/background.tscn" id="1_hqpsq"]
 
-[sub_resource type="Theme" id="Theme_wsny6"]
-default_font_size = 32
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8njoe")
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = -9.0
-offset_right = 5.0
-offset_bottom = -9.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_wsny6")
+[node name="Background" parent="." instance=ExtResource("1_hqpsq")]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(80, 93)
-texture = ExtResource("1_f3wk3")
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 2
-offset_left = 338.0
-offset_top = 77.0
-offset_right = 483.0
-offset_bottom = 130.0
-text = "Click Me!"
-script = ExtResource("1_t3d7d")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 361.0
-offset_top = 309.0
-offset_right = 401.0
-offset_bottom = 354.0
-script = ExtResource("3_jq0fx")
-
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
