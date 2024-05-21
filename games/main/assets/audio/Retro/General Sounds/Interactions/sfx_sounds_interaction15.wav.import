@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://duengam3rxisp"
+path="res://.godot/imported/sfx_sounds_interaction15.wav-b3e5750f26167da41a8f64924a0d453f.sample"
+
+[deps]
+
+source_file="res://assets/audio/Retro/General Sounds/Interactions/sfx_sounds_interaction15.wav"
+dest_files=["res://.godot/imported/sfx_sounds_interaction15.wav-b3e5750f26167da41a8f64924a0d453f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

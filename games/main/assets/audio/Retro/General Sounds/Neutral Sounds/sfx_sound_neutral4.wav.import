@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dq1ipl8wv7xan"
+path="res://.godot/imported/sfx_sound_neutral4.wav-3a5fb44f8e2e87eeaca2607525ac4f99.sample"
+
+[deps]
+
+source_file="res://assets/audio/Retro/General Sounds/Neutral Sounds/sfx_sound_neutral4.wav"
+dest_files=["res://.godot/imported/sfx_sound_neutral4.wav-3a5fb44f8e2e87eeaca2607525ac4f99.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

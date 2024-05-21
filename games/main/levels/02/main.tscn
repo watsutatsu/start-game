@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://wiuv10qpq68r"]
+
+[ext_resource type="PackedScene" uid="uid://b8i48t66kxi1x" path="res://scenes/common/background.tscn" id="1_b2byv"]
+[ext_resource type="FontFile" uid="uid://b2c0ocq4mgjk5" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_n13ww"]
+[ext_resource type="AudioStream" uid="uid://dk0a4ck2jwm4f" path="res://assets/audio/Retro/Death Screams/Alien/sfx_deathscream_alien2.wav" id="3_20o0y"]
+[ext_resource type="PackedScene" uid="uid://bksvtde1focrs" path="res://levels/01/goal.tscn" id="5_djqlh"]
+[ext_resource type="Script" path="res://levels/01/goal.gd" id="6_kdb6d"]
+[ext_resource type="PackedScene" uid="uid://d1xpa7x843a42" path="res://levels/02/player.tscn" id="7_e0g0k"]
+[ext_resource type="PackedScene" uid="uid://bxrtqqpeflyyb" path="res://levels/01/floor.tscn" id="7_kbkus"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_b2byv")]
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 1154.0
+offset_bottom = 649.0
+theme_override_fonts/font = ExtResource("2_n13ww")
+theme_override_font_sizes/font_size = 72
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_20o0y")
+
+[node name="Goal" parent="." instance=ExtResource("5_djqlh")]
+position = Vector2(1002, 399)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("6_kdb6d")
+
+[node name="Floot" parent="." instance=ExtResource("7_kbkus")]
+position = Vector2(0, 608)
+scale = Vector2(29, 1)
+
+[node name="Player" parent="." instance=ExtResource("7_e0g0k")]
+
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]

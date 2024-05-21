@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://kl3rujb3bcpn"
+path="res://.godot/imported/sfx_sounds_negative1.wav-6265a9e6f87a87869f84960e9c03cc0c.sample"
+
+[deps]
+
+source_file="res://assets/audio/Retro/General Sounds/Negative Sounds/sfx_sounds_negative1.wav"
+dest_files=["res://.godot/imported/sfx_sounds_negative1.wav-6265a9e6f87a87869f84960e9c03cc0c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

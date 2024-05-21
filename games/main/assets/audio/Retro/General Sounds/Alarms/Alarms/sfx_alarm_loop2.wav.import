@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8y4fvk8pepc7"
+path="res://.godot/imported/sfx_alarm_loop2.wav-8386b754a16925e74a9a81f1a87bdbbe.sample"
+
+[deps]
+
+source_file="res://assets/audio/Retro/General Sounds/Alarms/Alarms/sfx_alarm_loop2.wav"
+dest_files=["res://.godot/imported/sfx_alarm_loop2.wav-8386b754a16925e74a9a81f1a87bdbbe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
