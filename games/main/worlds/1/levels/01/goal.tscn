@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bksvtde1focrs"]
+[gd_scene load_steps=4 format=3 uid="uid://bksvtde1focrs"]
 
+[ext_resource type="Script" path="res://worlds/1/levels/01/goal.gd" id="1_8dagc"]
 [ext_resource type="AudioStream" uid="uid://cwhlf5wjdxpnm" path="res://assets/audio/Retro/General Sounds/Positive Sounds/sfx_sounds_powerup2.wav" id="1_weqnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si10q"]
@@ -7,6 +8,7 @@ size = Vector2(40, 40)
 
 [node name="Goal" type="Area2D"]
 scale = Vector2(0.25, 0.25)
+script = ExtResource("1_8dagc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(20, 20)

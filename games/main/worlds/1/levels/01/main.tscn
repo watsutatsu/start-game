@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvtyjd1kgqmub"]
+
+[ext_resource type="Script" path="res://worlds/1/levels/01/main.gd" id="1_ica3f"]
+[ext_resource type="PackedScene" uid="uid://b8i48t66kxi1x" path="res://scenes/common/background.tscn" id="1_qwa2n"]
+[ext_resource type="PackedScene" uid="uid://ddkbrrojqyq8k" path="res://worlds/1/levels/01/player.tscn" id="3_o30c4"]
+[ext_resource type="PackedScene" uid="uid://bksvtde1focrs" path="res://worlds/1/levels/01/goal.tscn" id="4_x7iw2"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ica3f")
+
+[node name="Background" parent="." instance=ExtResource("1_qwa2n")]
+
+[node name="Player" parent="." instance=ExtResource("3_o30c4")]
+position = Vector2(557, 300)
+
+[node name="Goal" parent="." instance=ExtResource("4_x7iw2")]
+position = Vector2(307, 88)
+scale = Vector2(0.5, 0.5)
